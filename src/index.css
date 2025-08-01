@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Math Microservice Design System - Technical & Clean */
+
+@layer base {
+  :root {
+    /* Base Colors - Eye-friendly Light Green Background */
+    --background: 120 100% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 255 255 255%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 255 255 255%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Mathematical Blue */
+    --primary: 214 84% 56%;
+    --primary-foreground: 255 255 255%;
+    --primary-glow: 214 84% 70%;
+
+    /* Secondary - Computational Gray */
+    --secondary: 215 16% 96%;
+    --secondary-foreground: 215 25% 15%;
+
+    --muted: 215 16% 96%;
+    --muted-foreground: 215 10% 50%;
+
+    /* Accent - Algorithm Green */
+    --accent: 142 71% 45%;
+    --accent-foreground: 255 255 255%;
+    --accent-glow: 142 71% 60%;
+
+    /* Semantic Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 255 255 255%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 255 255 255%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 255 255 255%;
+
+    /* Interface */
+    --border: 215 14% 89%;
+    --input: 215 14% 89%;
+    --ring: 214 84% 56%;
+
+    /* Math Operation Specific Colors */
+    --power: 267 84% 56%;
+    --power-foreground: 255 255 255%;
+    --power-glow: 267 84% 70%;
+
+    --fibonacci: 25 95% 53%;
+    --fibonacci-foreground: 255 255 255%;
+    --fibonacci-glow: 25 95% 68%;
+
+    --factorial: 142 71% 45%;
+    --factorial-foreground: 255 255 255%;
+    --factorial-glow: 142 71% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 70%));
+    --gradient-power: linear-gradient(135deg, hsl(267 84% 56%), hsl(267 84% 70%));
+    --gradient-fibonacci: linear-gradient(135deg, hsl(25 95% 53%), hsl(25 95% 68%));
+    --gradient-factorial: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(248 250 252%), hsl(248 100% 99%));
+
+    /* Shadows */
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 40px hsl(214 84% 56% / 0.15);
+    --shadow-power: 0 0 40px hsl(267 84% 56% / 0.15);
+    --shadow-fibonacci: 0 0 40px hsl(25 95% 53% / 0.15);
+    --shadow-factorial: 0 0 40px hsl(142 71% 45% / 0.15);
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Professional & Eye-friendly */
+    --background: 215 28% 8%;
+    --foreground: 215 20% 90%;
+
+    --card: 215 28% 10%;
+    --card-foreground: 215 20% 90%;
+
+    --popover: 215 28% 10%;
+    --popover-foreground: 215 20% 90%;
+
+    --primary: 214 84% 56%;
+    --primary-foreground: 255 255 255%;
+    --primary-glow: 214 84% 70%;
+
+    --secondary: 215 20% 15%;
+    --secondary-foreground: 215 20% 90%;
+
+    --muted: 215 20% 15%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 142 71% 45%;
+    --accent-foreground: 255 255 255%;
+    --accent-glow: 142 71% 60%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 255 255 255%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 255 255 255%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 255 255 255%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 15%;
+    --ring: 214 84% 56%;
+
+    /* Dark Mode Operation Colors */
+    --power: 267 84% 56%;
+    --power-foreground: 255 255 255%;
+    --power-glow: 267 84% 70%;
+
+    --fibonacci: 25 95% 53%;
+    --fibonacci-foreground: 255 255 255%;
+    --fibonacci-glow: 25 95% 68%;
+
+    --factorial: 142 71% 45%;
+    --factorial-foreground: 255 255 255%;
+    --factorial-glow: 142 71% 60%;
+
+    /* Dark Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 70%));
+    --gradient-power: linear-gradient(135deg, hsl(267 84% 56%), hsl(267 84% 70%));
+    --gradient-fibonacci: linear-gradient(135deg, hsl(25 95% 53%), hsl(25 95% 68%));
+    --gradient-factorial: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(215 28% 8%), hsl(215 28% 12%));
+
+    /* Dark Mode Shadows */
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-glow: 0 0 40px hsl(214 84% 56% / 0.25);
+    --shadow-power: 0 0 40px hsl(267 84% 56% / 0.25);
+    --shadow-fibonacci: 0 0 40px hsl(25 95% 53% / 0.25);
+    --shadow-factorial: 0 0 40px hsl(142 71% 45% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Monaco', 'Cascadia Code', monospace;
+  }
+}
+
+@layer components {
+  /* Operation Card Variants */
+  .operation-card {
+    @apply relative overflow-hidden bg-card border rounded-xl p-6 transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .operation-card:hover {
+    @apply scale-[1.02];
+    box-shadow: var(--shadow-medium);
+  }
+
+  .operation-card-power {
+    background: var(--gradient-power);
+    @apply text-white;
+    box-shadow: var(--shadow-power);
+  }
+
+  .operation-card-fibonacci {
+    background: var(--gradient-fibonacci);
+    @apply text-white;
+    box-shadow: var(--shadow-fibonacci);
+  }
+
+  .operation-card-factorial {
+    background: var(--gradient-factorial);
+    @apply text-white;
+    box-shadow: var(--shadow-factorial);
+  }
+
+  /* Animated Background Pattern */
+  .math-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--accent) / 0.1) 0%, transparent 50%);
+  }
+
+  /* Code Display */
+  .code-display {
+    @apply bg-muted/50 border rounded-lg p-4 font-mono text-sm;
+    background: linear-gradient(135deg, hsl(var(--muted)), hsl(var(--muted) / 0.5));
+  }
+
+  /* Metric Cards */
+  .metric-card {
+    @apply bg-gradient-to-br from-card to-card/50 border rounded-xl p-6;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+  }
+
+  .metric-card:hover {
+    box-shadow: var(--shadow-medium);
+  }
+}
