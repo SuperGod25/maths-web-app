@@ -1,36 +1,36 @@
-// src/lib/api.ts
 import axios from 'axios';
 
-// Base URL from .env or fallback
+// ✅ Determine base URL based on environment
 const API_BASE_URL =
   import.meta.env.MODE === 'development'
     ? import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
-    : ''; // in production, use relative path
-
+    : ''; // production uses relative paths like /api/power
 
 export const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: API_BASE_URL || undefined, // ✅ allow Axios to default to relative in production
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Request interceptor for optional auth
+// ✅ Optional Auth Token Interceptor
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('authToken');
     if (token) config.headers.Authorization = `Bearer ${token}`;
+
+    console.log("📡 API Request to:", (config.baseURL || '') + config.url);
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-// Global response error handler
+// ✅ Global Error Logger
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error('API Error:', error.response?.data || error.message);
+    console.error('❌ API Error:', error.response?.data || error.message);
     return Promise.reject(error);
   }
 );
@@ -66,7 +66,7 @@ export interface ApiResponse<T> {
   executionTime: number;
 }
 
-// --- Live API Implementation ---
+// --- Live API Methods ---
 export const mathApi = {
   calculatePower: async (data: PowerRequest): Promise<ApiResponse<number>> => {
     const response = await api.post('/api/power', data);
@@ -109,5 +109,5 @@ export const mathApi = {
   },
 };
 
-// Expose to the frontend
+// ✅ Export for use across app
 export const currentMathApi = mathApi;
