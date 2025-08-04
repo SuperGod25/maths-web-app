@@ -47,10 +47,10 @@ This project is a modern fullstack app with:
 ### 🧾 Operation History
 - Visual log of all operations
 - Filters and search
-- CSV export functionality (work in progress)
+- CSV export functionality 
 
 ### 📊 System Monitoring
-- Real-time metrics: request counts, success rate, avg response time
+- Real-time metrics: request counts, success rate, avg response time (work in progress)
 - Uptime counter
 - Status alerts with smooth UI transitions
 
