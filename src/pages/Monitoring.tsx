@@ -152,24 +152,30 @@ export const Monitoring = () => {
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-  {/* Chart Card */}
-  <Card className="p-6 bg-card shadow-sm h-full flex flex-col">
-    <div className="flex items-center justify-between mb-6">
-      <h3 className="text-lg font-semibold">Operation Volume</h3>
-      <Zap className="w-5 h-5 text-muted-foreground" />
-    </div>
-    <div className="flex-1 h-full">
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={performanceData}>
-          <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="requests" fill="hsl(var(--primary))" radius={4} />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  </Card>
+        {/* Chart Card */}
+        <Card className="p-6 bg-card shadow-sm h-full flex flex-col min-h-[360px]">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold">Operation Volume</h3>
+            <Zap className="w-5 h-5 text-muted-foreground" />
+          </div>
+          <div className="flex-1 h-full">
+            {performanceData.length === 0 ? (
+              <div className="h-full flex items-center justify-center text-muted-foreground border border-dashed rounded-lg p-4">
+                No data available
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={performanceData}>
+                  <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="requests" fill="hsl(var(--primary))" radius={4} />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
+          </div>
+        </Card>
 
   {/* Status Card */}
   <Card className="p-6 bg-card shadow-sm h-full flex flex-col justify-between">
