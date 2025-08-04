@@ -13,7 +13,6 @@ export default defineConfig(({ mode }) => ({
     react(),
     
   ].filter(Boolean),
-  root: ".",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
