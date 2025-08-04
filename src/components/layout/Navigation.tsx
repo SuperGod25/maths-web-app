@@ -23,13 +23,13 @@ const navigationItems = [
   },
   {
     name: 'History',
-    path: '/api/history',
+    path: '/history',
     icon: History,
     description: 'Request history'
   },
   {
     name: 'Monitoring',
-    path: '/api/monitoring',
+    path: '/monitoring',
     icon: BarChart3,
     description: 'System metrics'
   }

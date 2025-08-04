@@ -19,7 +19,7 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/api/power", response_model=schemas.OperationResponse)
+@router.post("/power", response_model=schemas.OperationResponse)
 def power_op(req: schemas.PowRequest, db: Session = Depends(get_db)):
     start = perf_counter()
     try:
@@ -41,7 +41,7 @@ def power_op(req: schemas.PowRequest, db: Session = Depends(get_db)):
     db.commit()
     return {"result": result}
 
-@router.post("/api/fibonacci", response_model=schemas.OperationResponse)
+@router.post("/fibonacci", response_model=schemas.OperationResponse)
 def fibonacci_op(req: schemas.FibonacciRequest, db: Session = Depends(get_db)):
     start = perf_counter()
     try:
@@ -63,7 +63,7 @@ def fibonacci_op(req: schemas.FibonacciRequest, db: Session = Depends(get_db)):
     db.commit()
     return {"result": result}
 
-@router.post("/api/factorial", response_model=schemas.OperationResponse)
+@router.post("/factorial", response_model=schemas.OperationResponse)
 def factorial_op(req: schemas.FactorialRequest, db: Session = Depends(get_db)):
     start = perf_counter()
     try:
@@ -85,7 +85,7 @@ def factorial_op(req: schemas.FactorialRequest, db: Session = Depends(get_db)):
     db.commit()
     return {"result": result}
 
-@router.get("/api/history", response_model=List[OperationLogOut])
+@router.get("/history", response_model=List[OperationLogOut])
 def get_history(db: Session = Depends(get_db)):
     records = db.query(models.OperationLog).order_by(models.OperationLog.timestamp.desc()).all()
     for record in records:

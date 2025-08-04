@@ -31,8 +31,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/operation/:operation" element={<OperationPage />} />
-              <Route path="/api/history" element={<History />} />
-              <Route path="/api/monitoring" element={<Monitoring />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/monitoring" element={<Monitoring />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

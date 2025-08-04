@@ -25,7 +25,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/assets", StaticFiles(directory="static/assets"), name="assets")
 
 # API router
-app.include_router(routes.router)
+app.include_router(routes.router, prefix="/api")
 
 # Root route (index.html)
 @app.get("/", include_in_schema=False)
