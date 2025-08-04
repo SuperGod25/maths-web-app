@@ -99,8 +99,9 @@ export const Monitoring = () => {
           </div>
           <div className="space-y-2">
             <div className="text-2xl font-bold">
-              {metrics?.averageResponseTime?.toFixed(1) ?? '—'}ms
-            </div>
+  {metrics?.average_response_time?.toFixed(1) ?? '—'}ms
+</div>
+
             <div className="text-sm text-muted-foreground">Avg Response Time</div>
             <Progress value={85} className="h-2" />
           </div>
@@ -128,7 +129,10 @@ export const Monitoring = () => {
             <Badge variant="outline">Requests</Badge>
           </div>
           <div className="space-y-2">
-            <div className="text-2xl font-bold">{metrics?.totalRequests ?? 0}</div>
+           <div className="text-2xl font-bold">
+  {metrics?.total_requests ?? 0}
+</div>
+
             <div className="text-sm text-muted-foreground">Total API Requests</div>
             <Progress value={75} className="h-2" />
           </div>
@@ -143,8 +147,9 @@ export const Monitoring = () => {
           </div>
           <div className="space-y-2">
             <div className="text-2xl font-bold">
-              {metrics?.successRate?.toFixed(1) ?? 0}%
-            </div>
+  {metrics?.success_rate?.toFixed(1) ?? 0}%
+</div>
+
             <div className="text-sm text-muted-foreground">Success Rate</div>
             <Progress value={metrics?.successRate ?? 0} className="h-2" />
           </div>
