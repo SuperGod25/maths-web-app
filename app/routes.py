@@ -97,7 +97,7 @@ def get_history(db: Session = Depends(get_db)):
 
 
 
-@router.get("/api/metrics", response_model=schemas.SystemMetrics)
+@router.get("/metrics", response_model=schemas.SystemMetrics)
 def get_metrics(db: Session = Depends(get_db)):
     total_requests = db.query(func.count(models.OperationLog.id)).scalar()
     total_time = db.query(func.sum(models.OperationLog.execution_time)).scalar() or 0
