@@ -60,6 +60,55 @@ export const History = () => {
     }
   };
 
+  const handleExportCSV = () => {
+    console.log("🔁 Export triggered");
+    if (!operations || operations.length === 0) {
+      alert("No operations available to export.");
+      return;
+    }
+
+    const headers = [
+      "ID",
+      "Operation",
+      "Inputs",
+      "Result",
+      "Timestamp",
+      "Execution Time (ms)",
+      "Status",
+    ];
+
+    const rows = operations.map(op => [
+      op.id,
+      op.operation,
+      JSON.stringify(op.inputs).replace(/"/g, '""'),
+      op.result,
+      new Date(op.timestamp).toISOString(),
+      op.executionTime,
+      op.status,
+    ]);
+
+    const csv = [
+      headers.join(","),
+      ...rows.map(row =>
+        row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(",")
+      )
+    ].join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.setAttribute("download", "operation_history.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+
+
+
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
@@ -80,10 +129,21 @@ export const History = () => {
               <RefreshCw className="w-4 h-4 mr-2" />
               Refresh
             </Button>
-            <Button variant="outline">
+            <button
+              onClick={handleExportCSV}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#f4f4f5',
+                borderRadius: '0.375rem',
+                display: 'flex',
+                alignItems: 'center',
+                border: '1px solid #d1d5db',
+              }}
+            >
               <Download className="w-4 h-4 mr-2" />
               Export
-            </Button>
+            </button>
+
           </div>
         </div>
       </motion.div>

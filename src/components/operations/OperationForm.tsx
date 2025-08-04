@@ -11,7 +11,6 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { currentMathApi } from '@/lib/api'; // ✅ Axios API
 import { cn } from '@/lib/utils';
-
 // Validation schemas
 const powerSchema = z.object({
   base: z.number().min(-1000000).max(1000000),
